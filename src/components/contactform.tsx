@@ -60,7 +60,7 @@ export default function ContactForm() {
 
   return (
     <section id="contact" className="min-h-screen flex flex-col justify-center bg-gradient-to-b from-white to-gray-50 px-4 py-20">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Contact Me</h2>
+      <h2 className="text-3xl md:text-4xl text-gray-700 font-bold text-center mb-8">Contact Me</h2>
 
       <motion.form
         onSubmit={handleSubmit}

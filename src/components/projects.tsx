@@ -11,7 +11,7 @@ export default function Projects() {
       id="projects"
       className="min-h-screen flex flex-col justify-center bg-gradient-to-b from-white to-gray-50 px-4 py-20"
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">My Projects</h2>
+      <h2 className="text-3xl md:text-4xl text-gray-700 font-bold text-center mb-12">My Projects</h2>
 
       <div className="max-w-7xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
@@ -38,7 +38,7 @@ export default function Projects() {
             </div>
 
             <div className="p-4 flex flex-col flex-1">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <h3 className="text-xl text-gray-700 font-semibold mb-2">{project.title}</h3>
               <p className="text-gray-600 mb-2 flex-1">{project.description}</p>
 
               {/* Badge tech */}
@@ -54,14 +54,16 @@ export default function Projects() {
               </div>
 
               <div className="flex space-x-4 mt-auto">
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-blue-500 text-white rounded-full text-sm hover:bg-blue-600 transition"
-                >
-                  Live Demo
-                </a>
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-blue-500 text-white rounded-full text-sm hover:bg-blue-600 transition"
+                  >
+                    Live Demo
+                  </a>
+                )}
                 <a
                   href={project.githubUrl}
                   target="_blank"

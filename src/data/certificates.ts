@@ -21,5 +21,5 @@ export const certificates: Certificate[] = [
     image: "/images/certificates/aws.png",
     url: "https://www.aws.training/xyz",
   },
-  // Tambah lagi sesuai punya kamu
+ 
 ];

@@ -1,5 +1,3 @@
-// This is conceptual and assumes you have a way to define multiple gradient stops
-// for the background blob and handle dynamic border styles.
 "use client"
 
 import React from "react";
@@ -17,7 +15,7 @@ export default function Hero() {
         animate={{ scale: 1, opacity: 0.3 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
-        <div className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] bg-purple-300 rounded-full filter blur-3xl opacity-50" />
+        <div className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] bg-gray-400 rounded-full filter blur-3xl opacity-50" />
       </motion.div>
       <motion.div
         className="absolute bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2 z-0"
