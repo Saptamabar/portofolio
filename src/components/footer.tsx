@@ -8,13 +8,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
         {/* Copyright */}
         <p className="text-gray-600 text-sm mb-2 md:mb-0">
-          &copy; {new Date().getFullYear()} YourName. All rights reserved.
+          &copy; {new Date().getFullYear()} Achmad Sapta. All rights reserved.
         </p>
 
         {/* Sosial Media */}
         <div className="flex space-x-4">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Saptamabar"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-500"
@@ -22,7 +22,7 @@ export default function Footer() {
             <Github className="w-5 h-5" />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/achmad-sapta/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-500"
@@ -30,7 +30,7 @@ export default function Footer() {
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-            href="mailto:youremail@example.com"
+            href="mailto:achmadsapta77@gmail.com"
             className="text-gray-600 hover:text-blue-500"
           >
             <Mail className="w-5 h-5" />

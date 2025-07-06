@@ -35,7 +35,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-b from-white to-gray-50 px-4 overflow-hidden">
+    <section 
+    id = "home"
+    className="relative min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-b from-white to-gray-50 px-4 overflow-hidden">
       {/* Dynamic Background Elements (Existing) */}
       <motion.div
         className="absolute top-1/6 left-1/4 transform -translate-x-1/2 -translate-y-1/2 z-0"

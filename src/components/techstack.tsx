@@ -15,18 +15,17 @@ export default function TechStack() {
   className="absolute top-1/4 left-1/12 w-64 h-64 z-0 rotate-12 blur-sm opacity-30"
   initial={{ opacity: 0, y: 50, rotate: 0 }} // Tahap 1: Dimulai tersembunyi, sedikit di bawah
   whileInView={{
-    opacity: [0, 1, 1], // Fade in (0 ke 1), lalu tetap di 1
-    y: [50, 0, 0], // Geser ke atas (50 ke 0), lalu tetap di 0
-    rotate: [0, 12, 360] // Putar ke 12 derajat (initial orientation), lalu berputar ke 360 derajat
+    opacity: [0, 1, 1], 
+    y: [50, 0, 0], 
+    rotate: [0, 12, 360] 
   }}
-  viewport={{ once: true, amount: 0.5 }} // Trigger saat 50% elemen terlihat
+  viewport={{ once: true, amount: 0.5 }}
   transition={{
-    duration: 25, // Total durasi untuk satu siklus penuh (termasuk putaran infinite)
-    ease: ["easeOut", "easeOut", "linear"], // Ease untuk setiap tahap (muncul, stabil, putar)
-    delay: 0.5, // Penundaan awal sebelum animasi dimulai
-    times: [0, 0.03, 1], // Titik waktu relatif untuk setiap keyframe (0%, 10%, 100%)
-    repeat: Infinity, // Ini yang membuat putaran berulang tanpa henti
-    repeatDelay: 0 // Tidak ada jeda antar pengulangan
+    duration: 60, 
+    ease: ["easeOut", "easeOut", "linear"],
+    delay: 0.5, 
+    times: [0, 0.03, 1], 
+    repeatDelay: 0
   }}
 />
       <motion.img

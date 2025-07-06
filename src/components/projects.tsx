@@ -24,18 +24,12 @@ export default function Projects() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             {/* Hover zoom-in */}
-            <div
-              className="overflow-hidden cursor-pointer"
-              onClick={() => setLightboxImage(project.image)}
-            >
               <motion.img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-48 md:h-56 object-cover"
-                whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               />
-            </div>
 
             <div className="p-4 flex flex-col flex-1">
               <h3 className="text-xl text-gray-700 font-semibold mb-2">{project.title}</h3>
