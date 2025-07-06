@@ -16,18 +16,19 @@ export default function About() {
     >
       {/* Subtle background circles/blobs */}
       <motion.div
-        className="absolute top-1/4 left-0 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"
+        className="absolute bottom-1/12 left-1/12 w-64 h-64 bg-gray-200 rounded-full mix-blend-multiply filter blur-sm opacity-50 animate-blob animation-delay-1000"
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-      />
+        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2}}
+        />
+        <motion.div/>
       <motion.div
-        className="absolute bottom-1/4 right-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"
+        className="absolute bottom-1/4 right-1/12 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-sm opacity-30 animate-blob animation-delay-2000"
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 0.6 }}
       />
 
 
@@ -35,7 +36,7 @@ export default function About() {
       <motion.img
         src="/profile.jpg"
         alt="Your Name"
-        className="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover mb-6 md:mb-0 md:mr-10 shadow-xl border-4 border-white"
+        className="w-40 h-40 md:w-52 md:h-52 rounded-full z-50 object-cover mb-6 md:mb-0 md:mr-10 shadow-xl border-4 border-white"
         initial={{ opacity: 0, x: -50, scale: 0.9 }}
         whileInView={{ opacity: 1, x: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.4 }}
