@@ -66,7 +66,7 @@ export default function About() {
 
         {/* Download CV Button */}
         <motion.a
-          href="/CV.pdf"
+          href="/CV/CV_ATS_Achmad Sapta H_2025.pdf"
           download
           className="inline-flex items-center gap-2 px-6 py-2 border-2 border-blue-500 text-blue-500 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition shadow-md"
           whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.2)" }}
