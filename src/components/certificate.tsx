@@ -9,40 +9,48 @@ export default function Certificates() {
   return (
     <section
       id="certificates"
-      className="min-h-screen flex flex-col justify-center bg-gradient-to-b from-white to-gray-50 px-4 py-20"
+      className="min-h-screen flex flex-col justify-center bg-neo-white px-4 py-20 border-b-4 border-black"
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-700 text-center mb-12">Certificates</h2>
+      <h2 className="text-4xl md:text-5xl font-black text-black text-center mb-12 uppercase tracking-tight">
+        <span className="border-b-8 border-neo-second">Certificates</span>
+      </h2>
 
-      <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
+      <div className="max-w-5xl mx-auto grid gap-10 md:grid-cols-2">
         {certificates.map((cert, index) => (
           <motion.div
             key={index}
-            className="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition flex flex-col cursor-pointer" // Added cursor-pointer
+            className="bg-white border-4 border-black shadow-neo-lg hover:shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col cursor-pointer group"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            onClick={() => setLightboxImage(cert.image)} // Open lightbox on image click
+            onClick={() => setLightboxImage(cert.image)}
           >
-            <img
-              src={cert.image}
-              alt={cert.title}
-              className="w-full h-48 md:h-56 object-cover"
-            />
-            <div className="p-4 flex-1 flex flex-col">
-              <h3 className="text-lg md:text-xl text-gray-700 font-semibold mb-1">{cert.title}</h3>
-              <p className="text-blue-500 font-medium">{cert.issuer} · {cert.date}</p>
-              {cert.url && ( // Optionally display a link if available, separate from preview
-                <a
-                  href={cert.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 text-sm text-blue-600 hover:underline"
-                  onClick={(e) => e.stopPropagation()} // Prevent lightbox from opening when clicking this link
-                >
-                  View Credential
-                </a>
-              )}
+            <div className="border-b-4 border-black p-2 bg-gray-100 group-hover:bg-neo-second transition-colors">
+              <img
+                src={cert.image}
+                alt={cert.title}
+                className="w-full h-56 object-contain bg-white border-2 border-black"
+              />
+            </div>
+
+            <div className="p-6 flex-1 flex flex-col">
+              <h3 className="text-xl md:text-2xl font-black text-black uppercase mb-2 leading-tight">{cert.title}</h3>
+              <p className="text-neo-main-dark font-bold text-lg border-b-2 border-gray-200 pb-2 mb-2">{cert.issuer}</p>
+              <div className="flex justify-between items-center mt-auto">
+                <span className="text-black font-mono font-bold bg-neo-bg px-2 border-2 border-black text-sm">{cert.date}</span>
+                {cert.url && (
+                  <a
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold text-black border-b-4 border-neo-pink hover:bg-neo-pink transition-all px-1"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    View Credential ↗
+                  </a>
+                )}
+              </div>
             </div>
           </motion.div>
         ))}
@@ -57,17 +65,25 @@ export default function Certificates() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-50 p-4"
-          onClick={() => setLightboxImage(null)} 
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
+          onClick={() => setLightboxImage(null)}
         >
-          <motion.img
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            src={lightboxImage}
-            alt="Certificate Preview"
-            className="max-w-full max-h-[90vh] md:max-h-[80vh] object-contain rounded-lg shadow-xl cursor-pointer"
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="relative max-w-4xl w-full bg-white border-4 border-black p-2 shadow-[8px_8px_0px_0px_#fff]">
+            <button
+              className="absolute -top-6 -right-6 bg-red-500 text-white p-2 border-4 border-black font-bold shadow-neo hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all z-50"
+              onClick={() => setLightboxImage(null)}
+            >
+              CLOSE [ESC]
+            </button>
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              src={lightboxImage}
+              alt="Certificate Preview"
+              className="w-full max-h-[80vh] object-contain border-2 border-black"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
         </motion.div>
       )}
     </section>

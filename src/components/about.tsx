@@ -12,68 +12,60 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 py-20 bg-neo-white border-b-4 border-black relative overflow-hidden"
     >
-      {/* Subtle background circles/blobs */}
-      <motion.div
-        className="absolute bottom-1/12 left-1/12 w-64 h-64 bg-gray-200 rounded-full mix-blend-multiply filter blur-sm opacity-50 animate-blob animation-delay-1000"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-      />
-      <motion.div />
-      <motion.div
-        className="absolute bottom-1/4 right-1/12 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-sm opacity-30 animate-blob animation-delay-2000"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.6 }}
-      />
-
+      {/* Neo-Brutalism Background Elements */}
+      <div className="absolute top-10 right-10 w-24 h-24 bg-neo-yellow border-4 border-black shadow-neo rounded-none z-0 rotate-45"></div>
+      <div className="absolute bottom-10 left-10 w-20 h-20 bg-neo-pink border-4 border-black shadow-neo rounded-full z-0"></div>
 
       {/* Profile Photo */}
-      <motion.img
-        src="/profile.jpg"
-        alt="Your Name"
-        className="w-40 h-40 md:w-52 md:h-52 rounded-full z-50 object-cover mb-6 md:mb-0 md:mr-10 shadow-xl border-4 border-white"
-        initial={{ opacity: 0, x: -50, scale: 0.9 }}
-        whileInView={{ opacity: 1, x: 0, scale: 1 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      />
+      <motion.div
+        className="relative z-10 w-48 h-48 md:w-64 md:h-64 mb-10 md:mb-0 md:mr-16"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Photo Frame */}
+        <div className="absolute inset-0 bg-neo-second border-4 border-black translate-x-4 translate-y-4"></div>
+        <img
+          src="/profile.jpg"
+          alt="Your Name"
+          className="relative w-full h-full object-cover border-4 border-black grayscale hover:grayscale-0 transition-all duration-300"
+        />
+      </motion.div>
 
       {/* Description + Button */}
       <motion.div
-        className="text-center md:text-left max-w-xl z-10"
+        className="text-center md:text-left max-w-xl z-20 bg-white border-4 border-black p-8 shadow-neo-lg"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
         transition={{ staggerChildren: 0.2 }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-700"
+          className="text-4xl md:text-5xl font-black mb-6 text-black uppercase tracking-tighter"
           variants={textVariants}
         >
           About Me
         </motion.h2>
-        <motion.p className="text-gray-700 mb-4 leading-relaxed" variants={textVariants}>
-          Hi! I'm <span className="font-bold text-blue-600">Achmad Sapta Handoyo</span>, an Information Systems student (GPA 3.95) with proven experience in building <span className="italic">Full-Stack Web Applications</span> and a strong focus on system development.
+        <motion.p className="text-black font-medium text-lg mb-4 leading-relaxed" variants={textVariants}>
+          Hi! I'm <span className="font-black bg-neo-yellow px-1 border-2 border-black inline-block transform -rotate-1">Achmad Sapta Handoyo</span>, an Information Systems student (GPA 3.95) building <span className="italic font-bold bg-neo-second px-1 border-2 border-black inline-block transform rotate-1">Full-Stack Web Applications</span>.
         </motion.p>
-        <motion.p className="text-gray-700 mb-6 leading-relaxed" variants={textVariants}>
-          I am proficient in <span className="font-bold text-blue-500">Golang (Backend)</span> and modern JavaScript frameworks including <span className="font-bold text-blue-500">Vue.js</span> and <span className="font-bold text-blue-500">React</span>. I have experience developing REST APIs, administrative dashboards, and implementing end-to-end system architectures.
+        <motion.p className="text-black font-medium text-lg mb-8 leading-relaxed" variants={textVariants}>
+          I specialize in <span className="font-bold underline decoration-4 decoration-neo-main">Golang</span> and modern JS (<span className="font-bold">Vue.js, React</span>). I craft robust backends and bold frontends.
         </motion.p>
 
         {/* Download CV Button */}
         <motion.a
           href="/CV/CV_ATS_Achmad Sapta H_2025.pdf"
           download
-          className="inline-flex items-center gap-2 px-6 py-2 border-2 border-blue-500 text-blue-500 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition shadow-md"
-          whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.2)" }}
+          className="inline-flex items-center gap-3 px-8 py-3 bg-black text-white font-bold text-lg border-2 border-black hover:bg-white hover:text-black hover:shadow-neo transition-all uppercase"
+          whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.95 }}
           variants={textVariants}
         >
-          Download CV <Download className="w-5 h-5" />
+          Download CV <Download className="w-6 h-6" />
         </motion.a>
       </motion.div>
     </section>

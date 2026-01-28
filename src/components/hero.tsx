@@ -37,45 +37,39 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-b from-white to-gray-50 px-4 overflow-hidden">
-      {/* Dynamic Background Elements (Existing) */}
+      className="relative min-h-screen flex flex-col items-center justify-center text-center bg-neo-bg px-4 overflow-hidden pt-20 border-b-4 border-black">
+      {/* Abstract Shapes (Neo-Brutalism) */}
       <motion.div
-        className="absolute top-1/6 left-1/4 transform -translate-x-1/2 -translate-y-1/2 z-0"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.3 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      >
-        <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-gray-400 rounded-full filter blur-sm opacity-50 animate-blob" />
-      </motion.div>
+        className="absolute top-20 left-10 w-32 h-32 bg-neo-main border-4 border-black shadow-neo-lg z-0 rotate-12"
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2 z-0"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.3 }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
-      >
-        <div className="w-[350px] h-[350px] md:w-[450px] md:h-[450px] bg-blue-300 rounded-full filter blur-sm opacity-50 animate-blob animation-delay-2000" />
-      </motion.div>
+        className="absolute bottom-20 right-10 w-40 h-40 bg-neo-second border-4 border-black shadow-neo-lg z-0 -rotate-6 rounded-none"
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      />
 
-      {/* Tech Stack Icons as Background Confetti */}
+      {/* Tech Stack Icons as Floating Stickers */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Only render icons with animations once on the client */}
         {isClient && animatedIconProps.map((props, index) => {
-          const tech = techStack[index]; // Get the tech data for this index
-
+          const tech = techStack[index];
           return (
             <motion.div
               key={tech.name + index}
-              className="absolute p-2 bg-white rounded-full shadow-md flex items-center justify-center"
+              className="absolute p-3 bg-white border-2 border-black shadow-neo-sm flex items-center justify-center"
               style={{
                 left: `${props.randomLeft}%`,
-                bottom: '-20px',
-                transform: `scale(${props.randomSize})`,
+                bottom: '-50px',
+                transform: `rotate(${props.randomRotation}deg)`,
               }}
-              initial={{ opacity: 0, y: 0, rotate: 0 }}
+              initial={{ opacity: 0, y: 0 }}
               animate={{
                 opacity: [0, 1, 1, 0],
-                y: [`0vh`, `-100vh`],
-                rotate: props.randomRotation,
+                y: [`0vh`, `-110vh`],
+                rotate: props.randomRotation + 360,
               }}
               transition={{
                 duration: props.randomDuration,
@@ -84,93 +78,89 @@ export default function Hero() {
                 delay: props.randomDelay,
               }}
             >
-              <img src={tech.icon} alt={tech.name} className="w-8 h-8" />
+              <img src={tech.icon} alt={tech.name} className="w-8 h-8 opacity-100 grayscale hover:grayscale-0 transition-all" />
             </motion.div>
           );
         })}
       </div>
 
-      {/* Konten Utama (relative z-index to be above background icons) */}
-      <motion.img
-        src="/profile.jpg"
-        alt="Profile"
-        className="relative z-10 w-48 h-48 rounded-full shadow mb-4 object-cover"
-        style={{
-          border: '4px solid transparent',
-          backgroundImage: 'white',
-          backgroundOrigin: 'border-box',
-          backgroundClip: 'padding-box, border-box',
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-        }}
-        initial={{ opacity: 0, scale: 0.8 }}
-        transition={{
-          opacity: { duration: 0.8, delay: 0.2 },
-          scale: { duration: 0.8, delay: 0.2 },
-        }}
-      />
-
-      {/* Judul typewriter */}
-      <motion.h1
-        className="relative z-10 text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 mt-4"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Typewriter
-          options={{
-            strings: [
-              '<span class="bg-gray-700 bg-clip-text text-transparent">Hi, I’m Sapta</span>',
-              '<span class="bg-gray-700 bg-clip-text text-transparent">Information Systems Student</span>',
-              '<span class="bg-gray-700 bg-clip-text text-transparent">Software Engineer</span>',
-              '<span class="bg-gray-700 bg-clip-text text-transparent">Tech Enthusiast</span>',
-            ],
-            autoStart: true,
-            loop: true,
-          }}
-        />
-      </motion.h1>
-
-      {/* Subjudul */}
-      <motion.p
-        className="relative z-10 text-gray-600 text-lg sm:text-xl md:text-2xl max-w-2xl mb-8"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        A passionate developer crafting beautiful and functional web experiences.
-      </motion.p>
-
-      {/* Tombol aksi */}
-      <motion.div
-        className="relative z-10 flex flex-wrap justify-center gap-4 mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-      >
-        <a
-          href="#projects"
-          className="px-6 py-3 bg-blue-500 text-white rounded-full font-semibold hover:bg-blue-600 transition shadow flex items-center gap-2"
+      {/* Main Content */}
+      <div className="relative z-10 bg-white border-4 border-black p-8 shadow-neo-lg max-w-4xl mx-auto transform hover:-translate-y-1 transition-transform cursor-default">
+        <motion.div
+          className="flex justify-center mb-6"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
         >
-          View Projects <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-        </a>
-        <a
-          href="#contact"
-          className="px-6 py-3 border-2 bg-white border-blue-500 text-blue-500 rounded-full font-semibold hover:bg-blue-50 transition shadow flex items-center gap-2"
+          <img
+            src="/profile.jpg"
+            alt="Profile"
+            className="w-48 h-48 border-4 border-black shadow-neo-sm object-cover"
+          />
+        </motion.div>
+
+        {/* Typewriter Title */}
+        <motion.h1
+          className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight leading-none"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          Contact Me <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-        </a>
-      </motion.div>
+          <Typewriter
+            options={{
+              strings: [
+                '<span class="text-black bg-neo-main px-2">ACHMAD SAPTA HANDOYO</span>',
+                '<span class="text-black bg-neo-second px-2">FULLSTACK DEVELOPER</span>',
+                '<span class="text-black bg-neo-pink px-2">SOFTWARE ENGINEER</span>',
+              ],
+              autoStart: true,
+              loop: true,
+              cursor: '_',
+              delay: 75,
+            }}
+          />
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          className="text-black text-xl md:text-2xl font-bold font-mono bg-neo-bg inline-block px-4 py-2 border-2 border-black mb-8 shadow-neo-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          Building raw, authentic, and functional web experiences.
+        </motion.p>
+
+        {/* Action Buttons */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <a
+            href="#projects"
+            className="px-8 py-4 bg-neo-main text-black font-black text-lg border-4 border-black shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 uppercase"
+          >
+            View Projects <ChevronDown className="rotate-[-90deg] border-2 border-black rounded-full p-0.5 w-6 h-6 bg-white" />
+          </a>
+          <a
+            href="#contact"
+            className="px-8 py-4 bg-white text-black font-black text-lg border-4 border-black shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 uppercase"
+          >
+            Contact Me <span className="text-xl">✉️</span>
+          </a>
+        </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
+        className="absolute bottom-8 animate-bounce"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
       >
-        <ChevronDown className="w-8 h-8 text-blue-500" />
+        <ChevronDown className="w-12 h-12 text-black bg-white border-2 border-black p-1 shadow-neo-sm" />
       </motion.div>
     </section>
   );

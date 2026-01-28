@@ -23,7 +23,7 @@ export const certificates: Certificate[] = [
     title: "3rd Place - I-COM CPC",
     issuer: "I-COM",
     date: "2024",
-    image: "/certificates/bnsp-mobile.png", // Placeholder
+    image: "/certificates/CPC.png", 
   },
   {
     title: "BNSP - Junior Mobile Developer",

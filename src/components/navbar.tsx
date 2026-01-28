@@ -21,7 +21,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 100; 
+      const scrollPos = window.scrollY + 100;
       let current = "home";
 
       navigation.forEach((item) => {
@@ -39,25 +39,26 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur z-10000 border-b">
+    <nav className="fixed top-0 left-0 w-full bg-neo-white z-50 border-b-[3px] border-black shadow-neo-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20"> {/* Increased height for chunkier look */}
           {/* Logo */}
           <div className="flex items-center">
-            <span className="font-bold text-xl text-black">&lt;/&gt;</span>
+            <span className="font-black text-2xl text-black bg-neo-main px-2 py-1 border-2 border-black shadow-neo-sm transform -rotate-2">
+              &lt;/&gt;
+            </span>
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`font-medium pb-1 ${
-                  activeSection === item.href.replace("#", "")
-                    ? "text-blue-500 border-b-2 border-blue-500"
-                    : "text-gray-700 hover:text-blue-500"
-                }`}
+                className={`font-bold text-lg uppercase tracking-wider transition-all duration-200 px-3 py-1 border-2 ${activeSection === item.href.replace("#", "")
+                    ? "bg-neo-yellow text-black border-black shadow-neo-sm -translate-y-1"
+                    : "bg-transparent text-gray-800 border-transparent hover:border-black hover:bg-neo-second hover:shadow-neo-sm hover:-translate-y-1"
+                  }`}
               >
                 {item.name}
               </a>
@@ -68,9 +69,9 @@ export default function Navbar() {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-500 focus:outline-none"
+              className="text-black hover:text-neo-main focus:outline-none border-2 border-black p-1 shadow-neo-sm bg-white active:shadow-none active:translate-x-[2px] active:translate-y-[2px]"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
             </button>
           </div>
         </div>
@@ -78,17 +79,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden px-2 pb-3 space-y-1 bg-white border-t">
+        <div className="md:hidden px-0 bg-neo-white border-b-[3px] border-black">
           {navigation.map((item) => (
             <a
               key={item.name}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`block font-medium py-2 ${
-                activeSection === item.href.replace("#", "")
-                  ? "text-blue-500 border-b-2 border-blue-500"
-                  : "text-gray-700 hover:text-blue-500"
-              }`}
+              className={`block font-bold text-lg uppercase py-4 text-center border-t-2 border-black ${activeSection === item.href.replace("#", "")
+                  ? "bg-neo-yellow text-black"
+                  : "bg-white text-black hover:bg-neo-second"
+                }`}
             >
               {item.name}
             </a>

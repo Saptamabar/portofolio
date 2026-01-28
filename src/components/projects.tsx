@@ -9,51 +9,57 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex flex-col justify-center bg-gradient-to-b from-white to-gray-50 px-4 py-20"
+      className="min-h-screen flex flex-col justify-center bg-neo-bg px-4 py-20 border-b-4 border-black"
     >
-      <h2 className="text-3xl md:text-4xl text-gray-700 font-bold text-center mb-12">My Projects</h2>
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-black text-black inline-block bg-white border-4 border-black p-4 shadow-neo-lg uppercase tracking-tight transform -rotate-1">
+          My Projects
+        </h2>
+      </div>
 
-      <div className="max-w-7xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden flex flex-col"
-            initial={{ opacity: 0, y: 20 }}
+            className="bg-white border-4 border-black rounded-none shadow-neo-lg flex flex-col transition-all hover:-translate-y-2 hover:shadow-neo hover:translate-x-[4px] group"
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            {/* Hover zoom-in */}
-              <motion.img
+            {/* Image Container with Border */}
+            <div className="relative border-b-4 border-black group-hover:opacity-90 transition-opacity cursor-zoom-in" onClick={() => setLightboxImage(project.image)}>
+              <div className="absolute inset-0 bg-neo-main opacity-0 group-hover:opacity-20 transition-opacity z-10 pointer-events-none"></div>
+              <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48 md:h-56 object-cover"
-                transition={{ duration: 0.3 }}
+                className="w-full h-56 object-cover"
               />
+            </div>
 
-            <div className="p-4 flex flex-col flex-1">
-              <h3 className="text-xl text-gray-700 font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-600 mb-2 flex-1">{project.description}</p>
+            <div className="p-6 flex flex-col flex-1">
+              <h3 className="text-2xl font-black text-black mb-3 uppercase leading-tight">{project.title}</h3>
+              <p className="text-black font-medium mb-6 flex-1 border-l-4 border-neo-second pl-4 leading-relaxed bg-gray-50 p-2 border-t-2 border-r-2 border-b-2 border-gray-200">{project.description}</p>
 
               {/* Badge tech */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-3 mb-6">
                 {project.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full"
+                    className="bg-neo-yellow text-black text-xs font-bold px-3 py-1 border-2 border-black shadow-neo-sm uppercase"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="flex space-x-4 mt-auto">
+              <div className="flex gap-4 mt-auto">
                 {project.demoUrl && (
                   <a
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-blue-500 text-white rounded-full text-sm hover:bg-blue-600 transition"
+                    className="flex-1 text-center px-4 py-3 bg-neo-main text-black font-bold border-2 border-black shadow-neo-sm hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all uppercase text-sm"
                   >
                     Live Demo
                   </a>
@@ -62,7 +68,7 @@ export default function Projects() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 border border-blue-500 text-blue-500 rounded-full text-sm hover:bg-blue-50 transition"
+                  className="flex-1 text-center px-4 py-3 bg-white text-black font-bold border-2 border-black shadow-neo-sm hover:bg-black hover:text-white hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all uppercase text-sm"
                 >
                   GitHub
                 </a>
@@ -75,14 +81,22 @@ export default function Projects() {
       {/* Lightbox modal */}
       {lightboxImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
           onClick={() => setLightboxImage(null)}
         >
-          <img
-            src={lightboxImage}
-            alt="Preview"
-            className="max-h-[90%] max-w-[90%] rounded shadow-lg"
-          />
+          <div className="relative max-w-5xl w-full bg-white border-4 border-black p-2 shadow-neo-lg">
+            <button
+              className="absolute -top-6 -right-6 bg-neo-pink text-black p-2 border-4 border-black font-bold shadow-neo hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all z-50"
+              onClick={() => setLightboxImage(null)}
+            >
+              CLOSE X
+            </button>
+            <img
+              src={lightboxImage}
+              alt="Preview"
+              className="w-full max-h-[85vh] object-contain border-2 border-black"
+            />
+          </div>
         </div>
       )}
     </section>

@@ -10,6 +10,26 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Neo-Brutalism Palette */
+  --color-neo-bg: #f0f0f0;
+  --color-neo-main: #FD9745;
+  --color-neo-main-dark: #e58235;
+  --color-neo-second: #A6FAFF;
+  --color-neo-second-dark: #80dce3;
+  --color-neo-white: #ffffff;
+  --color-neo-black: #000000;
+  --color-neo-yellow: #FFD300;
+  --color-neo-pink: #FF90E8;
+
+  /* Shadows */
+  --shadow-neo: 4px 4px 0px 0px #000000;
+  --shadow-neo-sm: 2px 2px 0px 0px #000000;
+  --shadow-neo-lg: 8px 8px 0px 0px #000000;
+  --shadow-neo-hover: 2px 2px 0px 0px #000000;
+
+  /* Borders */
+  --border-width-3: 3px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,8 +40,8 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-neo-bg);
+  color: var(--color-neo-black);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -30,12 +50,16 @@ html {
 }
 
 @keyframes blob {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
+
   30% {
     transform: translate(20px, -30px) scale(1.1);
   }
+
   60% {
     transform: translate(-10px, 15px) scale(0.9);
   }

@@ -7,39 +7,35 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen flex flex-col justify-center bg-gradient-to-b from-white to-gray-50 px-4 py-20 relative overflow-hidden" // Added relative and overflow-hidden
+      className="min-h-screen flex flex-col justify-center bg-neo-bg px-4 py-20 relative overflow-hidden border-b-4 border-black"
     >
-      {/* Subtle Background Blobs */}
-      <motion.div
-        className="absolute top-1/4 left-0 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
-      />
+      <h2 className="text-4xl md:text-5xl font-black text-center mb-16 relative z-10 text-black uppercase tracking-tight">
+        <span className="bg-neo-white px-4 py-2 border-4 border-black shadow-neo-lg transform -rotate-2 inline-block">Experience</span>
+      </h2>
 
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10 text-gray-800">Experience</h2> {/* Added z-10 */}
-
-      <div className="max-w-5xl mx-auto space-y-8 relative z-10"> {/* Added z-10 */}
+      <div className="max-w-5xl mx-auto space-y-8 relative z-10">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
-            className="bg-white shadow rounded-xl p-6 md:p-8 cursor-pointer transition-transform transform hover:-translate-y-2 hover:shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="bg-white border-4 border-black shadow-neo-lg p-6 md:p-8 cursor-pointer transition-all transform hover:-translate-y-1 hover:shadow-neo hover:translate-x-[2px] group"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-1 text-gray-800">{exp.title}</h3>
-            <p className="text-blue-500 font-medium">{exp.company} · {exp.period}</p>
-            <p className="text-gray-700 mt-3">{exp.description}</p>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 border-b-2 border-black pb-4">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-black mb-1 text-black uppercase group-hover:text-neo-main-dark transition-colors">{exp.title}</h3>
+                <p className="text-neo-main-dark font-bold text-lg">{exp.company}</p>
+              </div>
+              <div className="mt-2 md:mt-0">
+                <span className="inline-block bg-neo-black text-neo-white px-3 py-1 font-bold text-sm border-2 border-transparent group-hover:border-neo-main group-hover:text-neo-main transition-all">
+                  {exp.period}
+                </span>
+              </div>
+            </div>
+
+            <p className="text-black font-medium text-lg leading-relaxed">{exp.description}</p>
           </motion.div>
         ))}
       </div>
