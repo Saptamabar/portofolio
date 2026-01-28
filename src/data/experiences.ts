@@ -7,15 +7,21 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    title: "Frontend Developer",
-    company: "PT Digital Maju",
-    period: "2023 - Present",
-    description: "Developed responsive web apps using React, Next.js, and Tailwind CSS. Focused on UI/UX and performance optimization."
+    title: "Software Engineer Intern",
+    company: "PT Suitmedia Kreasi Indonesia",
+    period: "Aug 2025 – Dec 2025",
+    description: "Developed CMS-based websites, built REST APIs, integrated third-party APIs, and collaborated in an Agile environment."
   },
   {
-    title: "Intern Web Developer",
-    company: "Startup Kreatif",
-    period: "2022 - 2023",
-    description: "Built and maintained internal tools, collaborated with design team, and learned about agile development."
+    title: "Assistant Coordinator",
+    company: "Software Engineering Laboratory",
+    period: "Aug 2025 – Present",
+    description: "Coordinated assistant schedules, ensured smooth lab operations, acted as liaison, and led meetings."
+  },
+  {
+    title: "Teaching Assistant",
+    company: "Software Engineering Laboratory",
+    period: "Aug 2024 – Present",
+    description: "Supported 50+ students in Algorithm & Programming, OOP, and Web Programming. Assisted with debugging and prepared course materials."
   },
 ];

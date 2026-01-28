@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Download } from "lucide-react"; 
+import { Download } from "lucide-react";
 
 export default function About() {
   const textVariants = {
@@ -20,9 +20,9 @@ export default function About() {
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2}}
-        />
-        <motion.div/>
+        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+      />
+      <motion.div />
       <motion.div
         className="absolute bottom-1/4 right-1/12 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-sm opacity-30 animate-blob animation-delay-2000"
         initial={{ scale: 0 }}
@@ -45,7 +45,7 @@ export default function About() {
 
       {/* Description + Button */}
       <motion.div
-        className="text-center md:text-left max-w-xl z-10" 
+        className="text-center md:text-left max-w-xl z-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
@@ -58,10 +58,10 @@ export default function About() {
           About Me
         </motion.h2>
         <motion.p className="text-gray-700 mb-4 leading-relaxed" variants={textVariants}>
-          Hi! I'm <span className="font-bold text-blue-600">Achmad Sapta Handoyo</span>, an Information Systems student with a GPA of 3.95 who is passionate about creating <span className="italic">intuitive and impactful web applications</span>. I enjoy transforming complex ideas into elegant, user-friendly designs.
+          Hi! I'm <span className="font-bold text-blue-600">Achmad Sapta Handoyo</span>, an Information Systems student (GPA 3.95) with proven experience in building <span className="italic">Full-Stack Web Applications</span> and a strong focus on system development.
         </motion.p>
         <motion.p className="text-gray-700 mb-6 leading-relaxed" variants={textVariants}>
-          My current stack includes <span className="font-bold text-blue-500">Laravel</span> and <span className="font-bold text-blue-500">React.js</span>, and I'm always eager to learn new technologies to keep growing as a developer. I thrive both when working independently and collaboratively to create high-quality digital solutions.
+          I am proficient in <span className="font-bold text-blue-500">Golang (Backend)</span> and modern JavaScript frameworks including <span className="font-bold text-blue-500">Vue.js</span> and <span className="font-bold text-blue-500">React</span>. I have experience developing REST APIs, administrative dashboards, and implementing end-to-end system architectures.
         </motion.p>
 
         {/* Download CV Button */}

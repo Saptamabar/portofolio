@@ -25,7 +25,7 @@ export default function Experience() {
         transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
       />
 
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10">Experience</h2> {/* Added z-10 */}
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10 text-gray-800">Experience</h2> {/* Added z-10 */}
 
       <div className="max-w-5xl mx-auto space-y-8 relative z-10"> {/* Added z-10 */}
         {experiences.map((exp, index) => (
@@ -37,7 +37,7 @@ export default function Experience() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <h3 className="text-xl md:text-2xl font-semibold mb-1">{exp.title}</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-1 text-gray-800">{exp.title}</h3>
             <p className="text-blue-500 font-medium">{exp.company} · {exp.period}</p>
             <p className="text-gray-700 mt-3">{exp.description}</p>
           </motion.div>

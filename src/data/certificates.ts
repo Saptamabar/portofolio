@@ -8,17 +8,27 @@ export interface Certificate {
 
 export const certificates: Certificate[] = [
   {
+    title: "Technoday Hackathon (Top 4)",
+    issuer: "Technoday",
+    date: "2025",
+    image: "/certificates/Technoday.png",
+  },
+  {
+    title: "1st Place - Innovius Web Design Competition",
+    issuer: "Innovius",
+    date: "2025",
+    image: "/certificates/Innovius.png",
+  },
+  {
+    title: "3rd Place - I-COM CPC",
+    issuer: "I-COM",
+    date: "2024",
+    image: "/certificates/bnsp-mobile.png", // Placeholder
+  },
+  {
     title: "BNSP - Junior Mobile Developer",
     issuer: "BNSP",
     date: "October 2024",
     image: "/certificates/bnsp-mobile.png",
   },
-  {
-    title: "Python",
-    issuer: "Hacker Rank",
-    date: "July 2025",
-    image: "/certificates/python.png",
-    url: "https://www.hackerrank.com/certificates/87d150976e30",
-  },
- 
 ];

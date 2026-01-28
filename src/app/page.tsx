@@ -9,17 +9,21 @@ import TechStack from "@/components/techstack";
 import Experience from "@/components/experience";
 import Certificates from "@/components/certificate";
 
+import Education from "@/components/education";
+
 export default function Home() {
   return (
     <main className="w-full h-dvh bg-amber-50">
-      <Navbar/>
-      <Hero/>
-      <About/>
-      <TechStack/>
-      <Projects/>
-      <Certificates/>
-      <ContactForm/>
-      <Footer/>
+      <Navbar />
+      <Hero />
+      <About />
+      <Education />
+      <Experience />
+      <TechStack />
+      <Projects />
+      <Certificates />
+      <ContactForm />
+      <Footer />
     </main>
   );
 }
