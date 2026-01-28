@@ -58,7 +58,7 @@ export default function About() {
 
         {/* Download CV Button */}
         <motion.a
-          href="/CV/CV_ATS_Achmad Sapta H_2025.pdf"
+          href="/CV/CV_ATS_Achmad Sapta H_2026.pdf"
           download
           className="inline-flex items-center gap-3 px-8 py-3 bg-black text-white font-bold text-lg border-2 border-black hover:bg-white hover:text-black hover:shadow-neo transition-all uppercase"
           whileHover={{ scale: 1.02 }}
