@@ -50,10 +50,10 @@ export default function About() {
           About Me
         </motion.h2>
         <motion.p className="text-black font-medium text-lg mb-4 leading-relaxed" variants={textVariants}>
-          Hi! I'm <span className="font-black bg-neo-yellow px-1 border-2 border-black inline-block transform -rotate-1">Achmad Sapta Handoyo</span>, an Information Systems student (GPA 3.95) building <span className="italic font-bold bg-neo-second px-1 border-2 border-black inline-block transform rotate-1">Full-Stack Web Applications</span>.
+          Hi! I'm <span className="font-black bg-neo-yellow px-1 border-2 border-black inline-block transform -rotate-1">Achmad Sapta Handoyo</span>, an Information Systems student (GPA 3.95) experienced in building backend systems, REST APIs, and <span className="italic font-bold bg-neo-second px-1 border-2 border-black inline-block transform rotate-1">full-stack web applications</span>.
         </motion.p>
         <motion.p className="text-black font-medium text-lg mb-8 leading-relaxed" variants={textVariants}>
-          I specialize in <span className="font-bold underline decoration-4 decoration-neo-main">Golang</span> and modern JS (<span className="font-bold">Vue.js, React</span>). I craft robust backends and bold frontends.
+          Proficient in <span className="font-bold underline decoration-4 decoration-neo-main">Golang</span> and <span className="font-bold">TypeScript</span> with exposure to PostgreSQL and Azure. I thrive in fast-paced environments, writing clean code and collaborating across teams to ship meaningful products.
         </motion.p>
 
         {/* Download CV Button */}
