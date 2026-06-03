@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     title : "TrustChain AI",
     description : "A real-time fraud detection platform that uses an LSTM–Isolation Forest ensemble with SHAP explainability and blockchain audit trails to flag anomalous financial transactions.",
-    image : "/projects/trustchainAI.png",
+    image : "/projects/TrustchainAI.png",
     githubUrl : "https://github.com/Saptamabar/trustchain-ai",
     demoUrl : "https://trustchain.achmadsapta.dev/",
     tags : ["Golang","FastAPI","React"],
@@ -47,7 +47,7 @@ export const projects: Project[] = [
   {
     title : "HistoPlay",
     description : "A mobile-first interactive edutainment app that gamifies Indonesian history learning through branching visual novel storytelling and a global leaderboard",
-    image : "/projects/HistoPlay.png",
+    image : "/projects/Histoplay.png",
     githubUrl : "https://github.com/Saptamabar/HistoPlay",
     demoUrl : "https://histoplay.vercel.app/",
     tags : ["Next.JS","Typescript","Firebase"],
